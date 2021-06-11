@@ -1,0 +1,24 @@
+﻿@model DevelopersApplication.Models.CareerDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Careers</h2>
+<form action="/Career/Update/@Model.CareerId" method="POST">
+    <div style="display:none;">
+        @* Pass through the Career Id *@
+        <input type="text" name="CareerId" value="@Model.CareerId" />
+    </div>
+    <div>
+        <label>Career Name</label> <input type="text" name="CareerName" value="@Model.CareerName" />
+    </div>
+    <div>
+        <label>Career Desc</label>
+        <textarea name="CareerDesc" value="@Model.CareerDesc"></textarea>
+    </div>
+    <div>
+        <input type="submit" value="Update Career" />
+
+    </div>
+</form>

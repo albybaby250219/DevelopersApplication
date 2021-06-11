@@ -1,0 +1,12 @@
+﻿@model DevelopersApplication.Models.ProgrammingLanguageDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this Programming Language?</h2>
+<a href="/ProgrammingLanguage/List">Cancel</a>
+<h3>Language: @Model.Language</h3>
+<form action="/ProgrammingLanguage/Delete/@Model.LanguageId" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>

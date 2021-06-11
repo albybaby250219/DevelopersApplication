@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DevelopersApplication.Models.CareerDto>
+
+@{
+    ViewBag.Title = "List";
+}
+<a href="/Career/New"> Add a Career </a>
+<h2>List of Careers</h2>
+@foreach (var career in Model)
+{
+    <h3> <a href="/Career/Details/@career.CareerId">@career.CareerName </a> </h3>
+}
+

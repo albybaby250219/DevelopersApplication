@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DevelopersApplication.Models.CareerDto>
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create Coder</h2>
+<form action="/Coder/Create" method="POST" name="createcoder">
+    <div>
+        <label for="Name">Name</label>
+        <input type="text" name="Name" />
+    </div>
+    <div>
+        <label for="Bio">Bio</label>
+        <textarea name="Bio"></textarea>
+    </div>
+    <div>
+        <label for="Company">Company</label>
+        <input type="text" name="Company" />
+    </div>
+    <div>
+        <label for="Career">Career</label>
+        <select name="CareerId">
+            @foreach (var careers in Model)
+            {
+                <option value="@careers.CareerId">@careers.CareerName</option>
+
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Add Coder" />
+    </div>
+
+</form>
+

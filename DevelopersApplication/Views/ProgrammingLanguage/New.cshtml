@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create Programming Language</h2>
+<form action="/ProgrammingLanguage/Create" method="POST" name="createprogramminglanguage">
+    <div>
+        <label for="Language">Language</label>
+        <input type="text" name="Language" />
+    </div>
+    <div>
+        <label for="LanguageInfo">Language Info</label>
+        <textarea name="LanguageInfo"></textarea>
+    </div>
+    <div>
+        <label for="IDEUsed">IDE Used</label>
+        <input type="text" name="IDEUsed" />
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Add Programming Language" />
+    </div>
+
+</form>
+

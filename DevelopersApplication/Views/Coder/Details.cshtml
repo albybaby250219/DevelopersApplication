@@ -1,0 +1,39 @@
+﻿@model DevelopersApplication.Models.ViewModels.DetailsCoder
+@{
+    ViewBag.Title = "Details";
+}
+
+<a href="/Coder/List">Go back to list</a>
+<br />
+<a href="/Coder/Edit/@Model.SelectedCoder.CoderId">Update</a>
+<br />
+<a style="color:#ab2020;" href="/Coder/DeleteConfirm/@Model.SelectedCoder.CoderId">Delete</a>
+<h2>@Model.SelectedCoder.Name</h2>
+<div> @Model.SelectedCoder.Bio </div>
+<p>Company:@Model.SelectedCoder.Company</p>
+
+<div>Career: @Model.SelectedCoder.CareerName</div>
+
+<div>
+    <h2>Programming Languages Known by @Model.SelectedCoder.Name:</h2>
+    @foreach (var programminglanguage in Model.ProgrammingLanguages)
+    {
+
+        <a href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a><a style="color:#ab2020;" href="/Coder/Unassociate/@Model.SelectedCoder.CoderId?LanguageId=@programminglanguage.LanguageId"> [x] </a> <br/>
+    }
+
+    <div>
+        <h4>Add new language mastered by  @Model.SelectedCoder.Name</h4>
+        <form method="POST" action="/Coder/Associate/@Model.SelectedCoder.CoderId">
+            <select name="LanguageId">
+                @foreach (var programminglanguage in Model.AvailableProgrammingLanguages)
+                {
+                    <option value="@programminglanguage.LanguageId">@programminglanguage.Language</option>
+                }
+
+            </select>
+            <input type="submit" value="Associate Programming Language" />
+        </form>
+    </div>
+</div>
+

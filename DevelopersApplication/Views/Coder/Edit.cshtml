@@ -1,0 +1,46 @@
+﻿@model DevelopersApplication.Models.ViewModels.UpdateCoder
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Coder</h2>
+<form action="/Coder/Update/@Model.SelectedCoder.CoderId" method="POST">
+    <div style="display:none;">
+        @* Pass through the Coder Id *@
+        <input type="text" name="CoderID" value="@Model.SelectedCoder.CoderId" />
+    </div>
+    <div>
+        <label for="Name">Name</label> 
+        <input type="text" name="Name" value="@Model.SelectedCoder.Name" />
+    </div>
+    <div>
+        <label for="Bio">Bio</label>
+        <textarea name="Bio" value="@Model.SelectedCoder.Bio"></textarea>
+    </div>
+    <div>
+        <label for="Company">Company</label>
+        <input type="text" name="Company" value="@Model.SelectedCoder.Company"/>
+    </div>
+    <div>
+        <label>CareerId</label>
+
+        <select name="CareerId">
+            @foreach (var careers in Model.CareerOptions)
+            {
+                string selected = "";
+                if (careers.CareerId == Model.SelectedCoder.CareerId)
+                {
+                    selected = "selected";
+                }
+                <option value="@careers.CareerId" @selected>@careers.CareerName</option>
+
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Update Coder" />
+
+    </div>
+</form>
+

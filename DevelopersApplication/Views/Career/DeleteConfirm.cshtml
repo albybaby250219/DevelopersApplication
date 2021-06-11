@@ -1,0 +1,13 @@
+﻿@model DevelopersApplication.Models.CareerDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this Career?</h2>
+<a href="/Career/List">Cancel</a>
+<h3>Career Name: @Model.CareerName</h3>
+<p>Career Desc @Model.CareerDesc</p>
+<form action="/Career/Delete/@Model.CareerId" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>

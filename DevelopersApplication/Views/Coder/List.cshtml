@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DevelopersApplication.Models.CoderDto>
+
+@{
+    ViewBag.Title = "List";
+}
+<a href="/Coder/New">Add a Coder</a>
+<h2>List of Coders</h2>
+@foreach(var coder in Model)
+{
+    <h3> <a href="/Coder/Details/@coder.CoderId">@coder.Name </a> </h3>
+}
+

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DevelopersApplication.Models.ProgrammingLanguageDto>
+@{
+    ViewBag.Title = "List";
+}
+<a href="/ProgrammingLanguage/New">Add Programming Language</a>
+<h2>List of Programming Languages</h2>
+@foreach (var programminglanguage in Model)
+{
+    <h3> <a href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a> </h3>
+}
+
+
+

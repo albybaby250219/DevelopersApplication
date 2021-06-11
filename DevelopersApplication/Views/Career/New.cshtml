@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create Career</h2>
+<form action="/Career/Create" method="POST" name="createcareer">
+    <div>
+        <label for="CareerName">Career Name</label>
+        <input type="text" name="CareerName" />
+    </div>
+    <div>
+        <label for="CareerDesc">Career Description</label>
+        <textarea name="CareerDesc"></textarea>
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Add Career" />
+    </div>
+
+</form>
+

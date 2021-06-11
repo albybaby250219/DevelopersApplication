@@ -1,0 +1,16 @@
+﻿
+@model DevelopersApplication.Models.CoderDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete this coder?</h2>
+<a href="/Coder/List">Cancel</a>
+<h2>@Model.Name</h2>
+<div> @Model.Bio</div>
+<div>Company @Model.Company</div>
+<form action="/Coder/Delete/@Model.CoderId" method="POST">
+    <input type="submit" value="Confirm Delete" />
+
+</form>

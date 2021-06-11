@@ -1,0 +1,23 @@
+﻿@model DevelopersApplication.Models.ViewModels.DetailsProgrammingLanguage
+@{
+    ViewBag.Title = "Details";
+}
+
+<a href="/ProgrammingLanguage/List">Go Back to the list of programming languages</a>
+<div><a href="/ProgrammingLanguage/Edit/@Model.SelectedProgrammingLanguage.LanguageId">Update</a></div>
+<div><a style="color:#ab2020;" href="/ProgrammingLanguage/DeleteConfirm/@Model.SelectedProgrammingLanguage.LanguageId">Delete</a></div>
+<h2>@Model.SelectedProgrammingLanguage.Language</h2>
+<div>@Model.SelectedProgrammingLanguage.LanguageInfo</div>
+<div>@Model.SelectedProgrammingLanguage.IDEUsed</div>
+
+
+
+<div>
+    <h3>Coders who are expert in @Model.SelectedProgrammingLanguage.Language</h3>
+    @foreach (var coder in Model.ExpertCoders)
+    {
+        <a href="/Coder/Details/@coder.CoderId">@coder.Name</a><br />
+
+    }
+</div>
+

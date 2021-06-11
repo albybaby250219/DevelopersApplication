@@ -1,0 +1,29 @@
+﻿@model DevelopersApplication.Models.ProgrammingLanguageDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Programming Language</h2>
+<form action="/ProgrammingLanguage/Update/@Model.LanguageId" method="POST">
+    <div style="display:none;">
+        @* Pass through the LanguageId *@
+        <input type="text" name="LanguageId" value="@Model.LanguageId" />
+    </div>
+    <div>
+        <label for="Language">Language</label>
+        <input type="text" name="Language" />
+    </div>
+    <div>
+        <label for="LanguageInfo">Language Info</label>
+        <textarea name="LanguageInfo"></textarea>
+    </div>
+    <div>
+        <label for="IDEUsed">IDE Used</label>
+        <input type="text" name="IDEUsed" />
+    </div>
+    <div>
+        <input type="submit" value="Update Programming Language" />
+
+    </div>
+</form>
