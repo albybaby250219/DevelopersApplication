@@ -3,10 +3,16 @@
 @{
     ViewBag.Title = "List";
 }
-<a href="/Career/New"> Add a Career </a>
-<h2>List of Careers</h2>
-@foreach (var career in Model)
-{
-    <h3> <a href="/Career/Details/@career.CareerId">@career.CareerName </a> </h3>
-}
+<link rel="stylesheet" type="text/css" href="~/Content/career.css" />
+<div class="container-fluid">
+    <h2>Careers</h2>
+    <div class="careercontainer">
+
+        @foreach (var career in Model)
+        {
+            <h3> <a class="list" href="/Career/Details/@career.CareerId">@career.CareerName </a> </h3>
+        }
+    </div>
+    <a class="btn" href="/Career/New"> Add a Career </a>
+</div>
 

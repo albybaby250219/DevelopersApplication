@@ -3,22 +3,30 @@
 @{
     ViewBag.Title = "Edit";
 }
+<link rel="stylesheet" type="text/css" href="~/Content/career.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="backbtn" href="/Career/List">Back</a>
+    </div>
+    <h2>Update Career</h2>
+    <div class="form-container">
+    <form action="/Career/Update/@Model.CareerId" method="POST">
+        <div style="display:none;">
+            @* Pass through the Career Id *@
+            <input type="text" name="CareerId" value="@Model.CareerId" />
+        </div>
+        <div class="formgroup">
+            <label class="label" for="careername">Career Name</label> 
+            <input type="text" name="CareerName" value="@Model.CareerName" class="formcontrol" />
+        </div>
+        <div class="formgroup">
+            <label class="label" for="careerdesc">Career Desc</label>
+            <input type="text" name="CareerDesc" value="@Model.CareerDesc" class="formcontrol"/>
+        </div>
+        <div>
+            <input class="btn" type="submit" value="Update Career" />
 
-<h2>Update Careers</h2>
-<form action="/Career/Update/@Model.CareerId" method="POST">
-    <div style="display:none;">
-        @* Pass through the Career Id *@
-        <input type="text" name="CareerId" value="@Model.CareerId" />
+        </div>
+    </form>
     </div>
-    <div>
-        <label>Career Name</label> <input type="text" name="CareerName" value="@Model.CareerName" />
-    </div>
-    <div>
-        <label>Career Desc</label>
-        <textarea name="CareerDesc" value="@Model.CareerDesc"></textarea>
-    </div>
-    <div>
-        <input type="submit" value="Update Career" />
-
-    </div>
-</form>
+</div>

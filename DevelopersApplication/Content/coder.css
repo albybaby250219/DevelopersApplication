@@ -1,0 +1,158 @@
+﻿body {
+    background: radial-gradient(darkblue, black);
+    min-height: 100vh;
+}
+
+h2 {
+    margin-top:50px;
+    color: white;
+    text-align: center;
+}
+
+.coder {
+    max-width: 900px;
+    min-height: 100vh;
+    margin: auto;
+    text-align: center;
+}
+
+.coders {
+    background-image: url(/Images/gold-frame.jpg);
+    text-align: center;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 600px;
+}
+
+.coderlist {
+    color: black;
+}
+
+    .coderlist:first-child {
+        padding-top: 60px;
+    }
+
+.ghost-button {
+    border-radius: 10px;
+    background-color: gold;
+    color: black;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-top:20px;
+}
+
+    .ghost-button:hover {
+        background-color: lightyellow;
+    }
+
+.update-btn {
+    border-radius: 10px;
+    background-color: forestgreen;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .update-btn:hover {
+        background-color: lightgreen;
+        color:black;
+    }
+.deletebtn {
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.deletebtn:hover {
+    background-color: black;
+    color: red;
+}
+.floatleft{
+    float:left;
+    margin-top:20px;
+}
+.floatright {
+    float: right;
+    margin-top: 20px;
+}
+.update{
+    text-align:center;
+    margin:20px;
+}
+.associate {
+    border-radius: 10px;
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 15px;
+    padding: 5px 5px;
+    text-align: center;
+}
+.flexcontainer{
+    display:flex;
+}
+.profilepic{
+    flex:1 0 0;
+}
+.details{
+    flex:1 0 0;
+    color:white;
+    font-size:20px;
+    margin:20px;
+}
+.bio{
+    font-size:15px;
+}
+.selectlanguage{
+    color:black;
+    font-size:15px;
+}
+.languages{
+    color:yellowgreen;
+    margin:20px;
+    font-family:'Book Antiqua';
+
+}
+h4{
+    margin-bottom:20px;
+}
+.form-container{
+    max-width:700px;
+    margin:auto;
+    padding:100px;
+    color:white;
+    text-align:center;
+    font-size:24px;
+    font-family:'Bookman Old Style';
+}
+.label{
+    margin:20px;
+}
+.formgroup{
+    padding:20px;
+}
+.formcontrol {
+    color: black;
+    font-size:15px;
+}
+.upload {
+    margin: 30px;
+}
+.delete{
+    max-width:700px;
+    margin:auto;
+    padding:100px;
+    color:white;
+    font-size:20px;
+    font-family:cursive;
+}
+.deleteconfirm{
+    text-align:center;
+}

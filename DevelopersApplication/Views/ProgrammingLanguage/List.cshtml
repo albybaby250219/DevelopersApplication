@@ -2,12 +2,16 @@
 @{
     ViewBag.Title = "List";
 }
-<a href="/ProgrammingLanguage/New">Add Programming Language</a>
-<h2>List of Programming Languages</h2>
-@foreach (var programminglanguage in Model)
-{
-    <h3> <a href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a> </h3>
-}
+<link rel="stylesheet" type="text/css" href="~/Content/pl.css" />
+<div class="container-fluid">
+    <h2>Programming Languages</h2>
+    <div class="plcontainer">
 
-
+        @foreach (var programminglanguage in Model)
+        {
+            <h3 class="list"> <a href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a> </h3>
+        }
+        <a class="btn" href="/ProgrammingLanguage/New">Add Programming Language</a>
+    </div>
+</div>
 

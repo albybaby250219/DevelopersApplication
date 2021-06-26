@@ -3,10 +3,18 @@
 @{
     ViewBag.Title = "List";
 }
-<a href="/Coder/New">Add a Coder</a>
-<h2>List of Coders</h2>
-@foreach(var coder in Model)
-{
-    <h3> <a href="/Coder/Details/@coder.CoderId">@coder.Name </a> </h3>
-}
-
+<link rel="stylesheet" type="text/css" href="~/Content/coder.css"/>
+<div class="container-fluid">
+    <div class="coder">
+        <h2>List of Coders</h2>
+        <div class="coders">
+            @foreach (var coder in Model)
+            {
+                <div class="coderlist">
+                    <h3> <a href="/Coder/Details/@coder.CoderId">@coder.Name </a> </h3>
+                </div>
+            }
+        </div>
+        <a class="ghost-button" href="/Coder/New">Add a Coder</a>
+    </div>
+</div>

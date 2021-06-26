@@ -3,10 +3,18 @@
 @{
     ViewBag.Title = "DeleteConfirm";
 }
-
-<h2>Are you sure you want to delete this Programming Language?</h2>
-<a href="/ProgrammingLanguage/List">Cancel</a>
-<h3>Language: @Model.Language</h3>
-<form action="/ProgrammingLanguage/Delete/@Model.LanguageId" method="POST">
-    <input type="submit" value="Confirm Delete" />
-</form>
+<link rel="stylesheet" type="text/css" href="~/Content/pl.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="backbtn" href="/ProgrammingLanguage/List">Cancel</a>
+    </div>
+    <div class="delete">
+        <h2>Are you sure you want to delete this Programming Language?</h2>
+        <h3> @Model.Language</h3>
+        <form action="/ProgrammingLanguage/Delete/@Model.LanguageId" method="POST">
+            <div>
+                <input class="deletebtn" type="submit" value="Confirm Delete" />
+            </div>
+        </form>
+    </div>
+</div>

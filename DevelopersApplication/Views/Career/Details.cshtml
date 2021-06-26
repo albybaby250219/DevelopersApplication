@@ -2,20 +2,32 @@
 @{
     ViewBag.Title = "Details";
 }
-<a href="/Career/List">Go Back to the list of careers</a>
-<div><a href="/Career/Edit/@Model.SelectedCareer.CareerId">Update</a></div>
-<br />
-<a style="color:#ab2020;" href="/Career/DeleteConfirm/@Model.SelectedCareer.CareerId">Delete</a>
-<h2>@Model.SelectedCareer.CareerName</h2>
-<div> @Model.SelectedCareer.CareerDesc</div>
+<link rel="stylesheet" type="text/css" href="~/Content/career.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="backbtn" href="/Career/List">Back</a>
+    </div>
+
+    <div class="floatright">
+        <a class="deletebtn" href="/Career/DeleteConfirm/@Model.SelectedCareer.CareerId">Delete</a>
+    </div>
+    <h2>@Model.SelectedCareer.CareerName</h2>
+
+    <div class="flexcontainer">
+        
+        
+       
+        <div class="details"> @Model.SelectedCareer.CareerDesc</div>
 
 
-<div style="margin-top:100px;">
-    <h3>Coders related to this Career</h3>
-    @foreach (var coder in Model.RelatedCoders)
-    {
-        <a href="/Coder/Details/@coder.CoderId">@coder.Name</a>
+        <div class=career">
+            <h3>Coders related to this Career</h3>
+            @foreach (var coder in Model.RelatedCoders)
+            {
+                <a class="list" href="/Coder/Details/@coder.CoderId">@coder.Name</a>
 
-    }
-</div>
+            }
+        </div>
 
+    </div>
+    <div><a class="btn" href="/Career/Edit/@Model.SelectedCareer.CareerId">Update</a></div>

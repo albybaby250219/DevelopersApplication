@@ -4,13 +4,21 @@
 @{
     ViewBag.Title = "DeleteConfirm";
 }
+<link rel="stylesheet" type="text/css" href="~/Content/coder.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="associate" href="/Coder/List">Cancel</a>
+    </div>
+    <div class="delete">
+        <h2>Are you sure you want to delete this coder?</h2>
+        <h2>@Model.Name</h2>
+        <div> @Model.Bio</div>
+        <div>@Model.Company</div>
+        <form action="/Coder/Delete/@Model.CoderId" method="POST">
+            <div class="deleteconfirm">
+                <input class="deletebtn" type="submit" value="Confirm Delete" />
+            </div>
 
-<h2>Are you sure you want to delete this coder?</h2>
-<a href="/Coder/List">Cancel</a>
-<h2>@Model.Name</h2>
-<div> @Model.Bio</div>
-<div>Company @Model.Company</div>
-<form action="/Coder/Delete/@Model.CoderId" method="POST">
-    <input type="submit" value="Confirm Delete" />
-
-</form>
+        </form>
+    </div>
+</div>

@@ -220,10 +220,19 @@
     <Compile Include="Migrations\202106092032558_programminglanguage-career.Designer.cs">
       <DependentUpon>202106092032558_programminglanguage-career.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106251306325_coderxpl.cs" />
+    <Compile Include="Migrations\202106251306325_coderxpl.Designer.cs">
+      <DependentUpon>202106251306325_coderxpl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106251508094_changeddetailscoder.cs" />
+    <Compile Include="Migrations\202106251508094_changeddetailscoder.Designer.cs">
+      <DependentUpon>202106251508094_changeddetailscoder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Career.cs" />
     <Compile Include="Models\Coder.cs" />
+    <Compile Include="Models\CoderxProgrammingLanguage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProgrammingLanguage.cs" />
@@ -239,10 +248,26 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\career.css" />
+    <Content Include="Content\coder.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\pl.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\background-img.jpg" />
+    <Content Include="Images\background.jpg" />
+    <Content Include="Images\backgroundimg.jpg" />
+    <Content Include="Images\gold-frame.jpg" />
+    <Content Include="Images\laptop.jpg" />
+    <Content Include="Images\main-img.jpg" />
+    <Content Include="Images\profile1.jpg" />
+    <Content Include="Images\profile2.jpg" />
+    <Content Include="Images\profile3.jpg" />
+    <Content Include="Images\profilelady1.jpg" />
+    <Content Include="Images\profilelady2.jpg" />
+    <Content Include="Images\profilelady3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="JsonData\Coder.json" />
@@ -314,6 +339,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\Coders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -349,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106092032558_programminglanguage-career.resx">
       <DependentUpon>202106092032558_programminglanguage-career.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106251306325_coderxpl.resx">
+      <DependentUpon>202106251306325_coderxpl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106251508094_changeddetailscoder.resx">
+      <DependentUpon>202106251508094_changeddetailscoder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

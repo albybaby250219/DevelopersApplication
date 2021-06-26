@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Web;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -37,6 +39,8 @@ namespace DevelopersApplication.Controllers
                 Name = c.Name,
                 Bio = c.Bio,
                 Company = c.Company,
+                CoderHasPic =c.CoderHasPic,
+                PicExtension = c.PicExtension,
                 CareerId = c.Careers.CareerId,
                 CareerName = c.Careers.CareerName
 
@@ -127,6 +131,7 @@ namespace DevelopersApplication.Controllers
         /// </example>
         [HttpPost]
         [Route("api/CoderData/AssociateCoderWithProgrammingLanguage/{coderid}/{languageid}")]
+        [Authorize]
         public IHttpActionResult AssociateCoderWithProgrammingLanguage(int coderid, int languageid)
         {
 
@@ -165,6 +170,7 @@ namespace DevelopersApplication.Controllers
         /// </example>
         [HttpPost]
         [Route("api/CoderData/UnAssociateCoderWithProgrammingLanguage/{coderid}/{languageid}")]
+        [Authorize]
         public IHttpActionResult UnAssociateCoderWithProgrammingLanguage(int coderid, int languageid)
         {
 
@@ -213,6 +219,8 @@ namespace DevelopersApplication.Controllers
                 Name = Coder.Name,
                 Bio = Coder.Bio,
                 Company = Coder.Company,
+                CoderHasPic =Coder.CoderHasPic,
+                PicExtension = Coder.PicExtension,
                 CareerId = Coder.CareerId,
                 CareerName =Coder.Careers.CareerName
             };
@@ -243,6 +251,7 @@ namespace DevelopersApplication.Controllers
 
         [ResponseType(typeof(void))]
         [HttpPost]
+        [Authorize]
         public IHttpActionResult UpdateCoder(int id, Coder Coder)
         {
             Debug.WriteLine("i AM IN UPDATE METOD");
@@ -258,6 +267,8 @@ namespace DevelopersApplication.Controllers
             }
 
             db.Entry(Coder).State = EntityState.Modified;
+            db.Entry(Coder).Property(c => c.CoderHasPic).IsModified = false;
+            db.Entry(Coder).Property(c => c.PicExtension).IsModified = false;
 
             try
             {
@@ -279,6 +290,92 @@ namespace DevelopersApplication.Controllers
         }
 
         /// <summary>
+        /// Receives coder profile picture data, uploads it to the webserver and updates the coder's HasPic option
+        /// </summary>
+        /// <param name="id">the coder id</param>
+        /// <returns>status code 200 if successful.</returns>
+        /// <example>
+        /// curl -F coderpic=@file.jpg "https://localhost:44384/api/coderdata/uploadcoderpic/2"
+        /// POST: api/coderData/UpdatecoderPic/3
+        /// HEADER: enctype=multipart/form-data
+        /// FORM-DATA: image
+        /// </example>
+        /// https://stackoverflow.com/questions/28369529/how-to-set-up-a-web-api-controller-for-multipart-form-data
+
+        [HttpPost]
+        public IHttpActionResult UploadCoderPic(int id)
+        {
+
+            bool haspic = false;
+            string picextension;
+            if (Request.Content.IsMimeMultipartContent())
+            {
+                Debug.WriteLine("Received multipart form data.");
+
+                int numfiles = HttpContext.Current.Request.Files.Count;
+                Debug.WriteLine("Files Received: " + numfiles);
+
+                //Check if a file is posted
+                if (numfiles == 1 && HttpContext.Current.Request.Files[0] != null)
+                {
+                    var CoderPic = HttpContext.Current.Request.Files[0];
+                    //Check if the file is empty
+                    if (CoderPic.ContentLength > 0)
+                    {
+                        //establish valid file types (can be changed to other file extensions if desired!)
+                        var validtypes = new[] { "jpeg", "jpg", "png", "gif" };
+                        var extension = Path.GetExtension(CoderPic.FileName).Substring(1);
+                        //Check the extension of the file
+                        if (validtypes.Contains(extension))
+                        {
+                            try
+                            {
+                                //file name is the id of the image
+                                string fn = id + "." + extension;
+
+                                //get a direct file path to ~/Content/images/coders/{id}.{extension}
+                                string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/Images/Coders/"), fn);
+
+                                //save the file
+                                CoderPic.SaveAs(path);
+
+                                //if these are all successful then we can set these fields
+                                haspic = true;
+                                picextension = extension;
+
+                                //Update the coderhaspic and picextension fields in the database
+                                Coder SelectedCoder = db.Coders.Find(id);
+                                SelectedCoder.CoderHasPic = haspic;
+                                SelectedCoder.PicExtension = extension;
+                                db.Entry(SelectedCoder).State = EntityState.Modified;
+
+                                db.SaveChanges();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("Coder Profile Image was not saved successfully.");
+                                Debug.WriteLine("Exception:" + ex);
+                                return BadRequest();
+                            }
+                        }
+                    }
+
+                }
+
+                return Ok();
+            }
+            else
+            {
+                //not multipart form data
+                return BadRequest();
+
+            }
+
+        }
+
+
+        /// <summary>
         /// Adds a coder to the system
         /// </summary>
         /// <param name="Coder">JSON FORM DATA of a coder</param>
@@ -292,9 +389,10 @@ namespace DevelopersApplication.Controllers
         /// POST: api/CoderData/AddCoder
         /// FORM DATA: Coder JSON Object
         /// </example>
- 
+
         [ResponseType(typeof(Coder))]
         [HttpPost]
+        [Authorize]
         public IHttpActionResult AddCoder(Coder Coder)
         {
             if (!ModelState.IsValid)
@@ -324,6 +422,7 @@ namespace DevelopersApplication.Controllers
     
         [ResponseType(typeof(Coder))]
         [HttpPost]
+        [Authorize]
         public IHttpActionResult DeleteCoder(int id)
         {
             Coder Coder = db.Coders.Find(id);
@@ -331,7 +430,16 @@ namespace DevelopersApplication.Controllers
             {
                 return NotFound();
             }
-
+            if (Coder.CoderHasPic && Coder.PicExtension != "")
+            {
+                //also delete image from path
+                string path = HttpContext.Current.Server.MapPath("~/Content/Images/Coders/" + id + "." + Coder.PicExtension);
+                if (System.IO.File.Exists(path))
+                {
+                    Debug.WriteLine("File exists... preparing to delete!");
+                    System.IO.File.Delete(path);
+                }
+            }
             db.Coders.Remove(Coder);
             db.SaveChanges();
 

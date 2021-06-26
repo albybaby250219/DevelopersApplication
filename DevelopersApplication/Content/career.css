@@ -1,0 +1,134 @@
+﻿body {
+    background-image: linear-gradient(to bottom right,black,blue);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
+.list:link{
+    text-decoration:none;
+    font-size:30px;
+}
+
+.careercontainer {
+    max-width: 700px;
+    margin: auto;
+    background-image: url(/Images/laptop.jpg);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    padding:50px;
+}
+
+.btn {
+    border-radius: 10px;
+    background-color: forestgreen;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.update-btn:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+.list {
+    color: yellow;
+    font-family: 'Book Antiqua';
+    padding: 5px;
+    font-size: 20px;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 100px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Bookman Old Style';
+}
+
+.label {
+    margin: 20px;
+}
+
+.formgroup {
+    padding: 20px;
+}
+
+.formcontrol {
+    color: black;
+    font-size: 15px;
+}
+
+.backbtn {
+    border-radius: 10px;
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.floatleft {
+    float: left;
+    margin: 20px;
+}
+
+.floatright {
+    float: right;
+    margin: 20px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+.delete {
+    max-width: 700px;
+    margin: auto;
+    padding: 100px;
+    color: white;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+.deletebtn {
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .deletebtn:hover {
+        background-color: black;
+        color: red;
+    }
+
+.flexcontainer {
+    display: flex;
+    padding: 30px;
+}
+
+
+
+.details {
+    flex: 2 0 0;
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    text-align: left;
+}
+
+.career {
+    flex: 1 0 0;
+}

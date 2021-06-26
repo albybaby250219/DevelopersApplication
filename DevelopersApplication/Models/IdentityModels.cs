@@ -32,6 +32,7 @@ namespace DevelopersApplication.Models
         public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
 
         public DbSet<Career> Careers { get; set; }
+        public DbSet<CoderxProgrammingLanguage> CodersxProgrammingLanguages { get; set; }
 
 
         public static ApplicationDbContext Create()

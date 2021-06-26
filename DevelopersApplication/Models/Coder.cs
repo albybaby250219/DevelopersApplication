@@ -19,7 +19,12 @@ namespace DevelopersApplication.Models
         public string Bio { get; set; }
         public string Company { get; set; }
 
-        //TO DO : Add the languages known  and career 
+       
+        //data needed for keeping track of profile pic uploaded
+        //images deposited into /Content/Images/Coders/{id}.{extension}
+        public bool CoderHasPic { get; set; }
+        public string PicExtension { get; set; }
+
         // A coder can have a career
         // a career can have many coders
 
@@ -39,6 +44,8 @@ namespace DevelopersApplication.Models
         public string Bio { get; set; }
 
         public string Company { get; set; }
+        public bool CoderHasPic { get; set; }
+        public string PicExtension { get; set; }
 
         public string CareerName { get; set; }
 

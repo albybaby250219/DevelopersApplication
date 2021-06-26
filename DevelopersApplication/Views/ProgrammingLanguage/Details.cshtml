@@ -2,22 +2,32 @@
 @{
     ViewBag.Title = "Details";
 }
+<link rel="stylesheet" type="text/css" href="~/Content/pl.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="backbtn" href="/ProgrammingLanguage/List">Back</a>
+    </div>
 
-<a href="/ProgrammingLanguage/List">Go Back to the list of programming languages</a>
-<div><a href="/ProgrammingLanguage/Edit/@Model.SelectedProgrammingLanguage.LanguageId">Update</a></div>
-<div><a style="color:#ab2020;" href="/ProgrammingLanguage/DeleteConfirm/@Model.SelectedProgrammingLanguage.LanguageId">Delete</a></div>
-<h2>@Model.SelectedProgrammingLanguage.Language</h2>
-<div>@Model.SelectedProgrammingLanguage.LanguageInfo</div>
-<div>@Model.SelectedProgrammingLanguage.IDEUsed</div>
+    <div class="floatright">
+        <a class="deletebtn" href="/ProgrammingLanguage/DeleteConfirm/@Model.SelectedProgrammingLanguage.LanguageId">Delete</a>
+    </div>
+    <h2>@Model.SelectedProgrammingLanguage.Language</h2>
+    <div class="flexcontainer">
+        <div class="details">
+            <p>@Model.SelectedProgrammingLanguage.LanguageInfo</p>
+            <p>IDEs Used: @Model.SelectedProgrammingLanguage.IDEUsed</p>
 
+        </div>
 
+        <div class="coder">
+            <h3>Coders who are expert in @Model.SelectedProgrammingLanguage.Language</h3>
+            @foreach (var coder in Model.ExpertCoders)
+            {
+                <a class="list" href="/Coder/Details/@coder.CoderId">@coder.Name</a><br />
 
-<div>
-    <h3>Coders who are expert in @Model.SelectedProgrammingLanguage.Language</h3>
-    @foreach (var coder in Model.ExpertCoders)
-    {
-        <a href="/Coder/Details/@coder.CoderId">@coder.Name</a><br />
-
-    }
+            }
+        </div>
+    </div>
+    <div><a class="btn" href="/ProgrammingLanguage/Edit/@Model.SelectedProgrammingLanguage.LanguageId">Update</a></div>
 </div>
 

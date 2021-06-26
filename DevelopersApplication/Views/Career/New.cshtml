@@ -2,20 +2,27 @@
 @{
     ViewBag.Title = "New";
 }
-
-<h2>Create Career</h2>
-<form action="/Career/Create" method="POST" name="createcareer">
-    <div>
-        <label for="CareerName">Career Name</label>
-        <input type="text" name="CareerName" />
+<link rel="stylesheet" type="text/css" href="~/Content/career.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="backbtn" href="/Career/List">Back</a>
     </div>
-    <div>
-        <label for="CareerDesc">Career Description</label>
-        <textarea name="CareerDesc"></textarea>
-    </div>
-    <div>
-        <input type="submit" name="submit" value="Add Career" />
-    </div>
+    <h2>Create Career </h2>
+    <div class="form-container">
+        <form action="/Career/Create" method="POST" name="createcareer">
+            <div class="formgroup">
+                <label class="label" for="CareerName">Career Name</label>
+                <input type="text" name="CareerName" class="formcontrol" />
+            </div>
+            <div class="formgroup">
+                <label class="label" for="CareerDesc">Career Description</label>
+                <input type="text" name="CareerDesc" class="formcontrol"/>
+            </div>
+            <div>
+                <input class="btn" type="submit" name="submit" value="Add Career" />
+            </div>
 
-</form>
+        </form>
 
+    </div>
+</div>

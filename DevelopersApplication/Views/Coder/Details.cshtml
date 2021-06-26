@@ -2,38 +2,58 @@
 @{
     ViewBag.Title = "Details";
 }
+<link rel="stylesheet" type="text/css" href="~/Content/coder.css" />
+<div class="container-fluid">
+    <div class="floatleft">
+        <a class="ghost-button" href="/Coder/List">Back</a>
+    </div>
 
-<a href="/Coder/List">Go back to list</a>
-<br />
-<a href="/Coder/Edit/@Model.SelectedCoder.CoderId">Update</a>
-<br />
-<a style="color:#ab2020;" href="/Coder/DeleteConfirm/@Model.SelectedCoder.CoderId">Delete</a>
-<h2>@Model.SelectedCoder.Name</h2>
-<div> @Model.SelectedCoder.Bio </div>
-<p>Company:@Model.SelectedCoder.Company</p>
+    <div class="floatright">
+        <a class="deletebtn" href="/Coder/DeleteConfirm/@Model.SelectedCoder.CoderId">Delete</a>
+    </div>
+    <h2>Coder Profile</h2>
 
-<div>Career: @Model.SelectedCoder.CareerName</div>
+    <div class="flexcontainer">
+        @{
+            string imageurl = "/Content/Images/Coders/default.jpg";
+            if (Model.SelectedCoder.CoderHasPic)
+            {
+                imageurl = "/Content/Images/Coders/" + Model.SelectedCoder.CoderId + "." + Model.SelectedCoder.PicExtension;
+            }
+        }
+        <div class="profilepic"><img style="display:block; max-width:100%;" alt="@Model.SelectedCoder.Name" src="@imageurl" /></div>
+        <div class="details">
+            <h3>@Model.SelectedCoder.Name</h3>
+            <p class="bio"> @Model.SelectedCoder.Bio </p>
+            <p>@Model.SelectedCoder.Company</p>
+            <p>@Model.SelectedCoder.CareerName</p>
+        </div>
+    </div>
+    <div class="flexcontainer">
+        <div class="details">
+        <h4>Programming Language Skills</h4>
+        @foreach (var programminglanguage in Model.ProgrammingLanguages)
+        {
 
-<div>
-    <h2>Programming Languages Known by @Model.SelectedCoder.Name:</h2>
-    @foreach (var programminglanguage in Model.ProgrammingLanguages)
-    {
+            <a class="languages" href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a> <a href="/Coder/Unassociate/@Model.SelectedCoder.CoderId?LanguageId=@programminglanguage.LanguageId" style="color:#ab2020;"> [x] </a> <br />
+        }
+        </div>
+        <div class="details">
+            <h4>I mastered</h4>
+            <form method="POST" action="/Coder/Associate/@Model.SelectedCoder.CoderId">
+                <select class="selectlanguage" name="LanguageId">
+                    @foreach (var programminglanguage in Model.AvailableProgrammingLanguages)
+                    {
+                        <option value="@programminglanguage.LanguageId">@programminglanguage.Language</option>
+                    }
 
-        <a href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a><a style="color:#ab2020;" href="/Coder/Unassociate/@Model.SelectedCoder.CoderId?LanguageId=@programminglanguage.LanguageId"> [x] </a> <br/>
-    }
-
-    <div>
-        <h4>Add new language mastered by  @Model.SelectedCoder.Name</h4>
-        <form method="POST" action="/Coder/Associate/@Model.SelectedCoder.CoderId">
-            <select name="LanguageId">
-                @foreach (var programminglanguage in Model.AvailableProgrammingLanguages)
-                {
-                    <option value="@programminglanguage.LanguageId">@programminglanguage.Language</option>
-                }
-
-            </select>
-            <input type="submit" value="Associate Programming Language" />
-        </form>
+                </select>
+                <input class="associate" type="submit" value="Associate Programming Language" />
+            </form>
+        </div>
+    </div>
+    <div class="update">
+        <a class="update-btn" href="/Coder/Edit/@Model.SelectedCoder.CoderId">Update</a>
     </div>
 </div>
 
