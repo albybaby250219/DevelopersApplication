@@ -21,3 +21,11 @@ Click on the appropriate links to view the list of coders ,languages and careers
 ![Homepage](/DevelopersApplication/Images/homepage.png.png)
 ![List of coders](/DevelopersApplication/Images/coderlist.png.png)
 ![Coder Details](/DevelopersApplication/Images/coderdetails.png)
+
+## Things to add 
+* To show the fav languages of the coder(did the table and added the data to the database couldn't display)
+* To add the relationship between careers and languages(many to many)
+* To categorize the languages based on  their position in the stack. For example, ORACLESQL, MSSQL, and MYSQL all beloning to the 'database' language. That way, when browsing a coder you can organize their languages by category.
+* To add more interactive elements
+* Option for the programmers to register in to the system
+
