@@ -18,6 +18,6 @@ This project also uploads images for the coders
 Click on the appropriate links to view the list of coders ,languages and careers and all the details
 
 ## ScreenShots of the project
-![Homepage](/DevelopersApplication/Images/homepage.png)
-![List of coders](/DevelopersApplication/Images/coderlist.png)
+![Homepage](/DevelopersApplication/Images/homepage.png.png)
+![List of coders](/DevelopersApplication/Images/coderlist.png.png)
 ![Coder Details](/DevelopersApplication/Images/coderdetails.png)
