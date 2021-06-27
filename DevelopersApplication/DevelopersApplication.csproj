@@ -261,7 +261,10 @@
     <Content Include="Images\background-img.jpg" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\backgroundimg.jpg" />
+    <Content Include="Images\coderdetails.png" />
+    <Content Include="Images\coderlist.png.png" />
     <Content Include="Images\gold-frame.jpg" />
+    <Content Include="Images\homepage.png.png" />
     <Content Include="Images\laptop.jpg" />
     <Content Include="Images\main-img.jpg" />
     <Content Include="Images\profile1.jpg" />
