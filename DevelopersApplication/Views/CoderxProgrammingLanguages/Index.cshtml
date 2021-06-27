@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DevelopersApplication.Models.CoderxProgrammingLanguage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Coder.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgrammingLanguage.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FavLang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Coder.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgrammingLanguage.Language)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FavLang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CoderxPLId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CoderxPLId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CoderxPLId })
+        </td>
+    </tr>
+}
+
+</table>

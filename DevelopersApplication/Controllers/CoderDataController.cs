@@ -374,7 +374,6 @@ namespace DevelopersApplication.Controllers
 
         }
 
-
         /// <summary>
         /// Adds a coder to the system
         /// </summary>

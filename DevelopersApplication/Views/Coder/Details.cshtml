@@ -27,6 +27,7 @@
             <p class="bio"> @Model.SelectedCoder.Bio </p>
             <p>@Model.SelectedCoder.Company</p>
             <p>@Model.SelectedCoder.CareerName</p>
+            <!--<p>Favourite Languages</p>-->
         </div>
     </div>
     <div class="flexcontainer">
@@ -37,6 +38,11 @@
 
             <a class="languages" href="/ProgrammingLanguage/Details/@programminglanguage.LanguageId">@programminglanguage.Language</a> <a href="/Coder/Unassociate/@Model.SelectedCoder.CoderId?LanguageId=@programminglanguage.LanguageId" style="color:#ab2020;"> [x] </a> <br />
         }
+        </div>
+        <div class="details">
+
+            <a class="associate" href="/CoderxProgrammingLanguage/Details/@Model.SelectedCoder.CoderId"/>Favourite Languages</a> <br />
+
         </div>
         <div class="details">
             <h4>I mastered</h4>

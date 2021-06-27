@@ -185,6 +185,7 @@
     <Compile Include="Controllers\CareerDataController.cs" />
     <Compile Include="Controllers\CoderController.cs" />
     <Compile Include="Controllers\CoderDataController.cs" />
+    <Compile Include="Controllers\CoderxProgrammingLanguagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProgrammingLanguageController.cs" />
@@ -250,6 +251,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\career.css" />
     <Content Include="Content\coder.css" />
+    <Content Include="Content\Images\Coders\default.jpg" />
     <Content Include="Content\main.css" />
     <Content Include="Content\pl.css" />
     <Content Include="favicon.ico" />
@@ -336,10 +338,14 @@
     <Content Include="Views\Career\DeleteConfirm.cshtml" />
     <Content Include="Views\ProgrammingLanguage\Edit.cshtml" />
     <Content Include="Views\ProgrammingLanguage\DeleteConfirm.cshtml" />
+    <Content Include="Views\CoderxProgrammingLanguages\Create.cshtml" />
+    <Content Include="Views\CoderxProgrammingLanguages\Delete.cshtml" />
+    <Content Include="Views\CoderxProgrammingLanguages\Details.cshtml" />
+    <Content Include="Views\CoderxProgrammingLanguages\Edit.cshtml" />
+    <Content Include="Views\CoderxProgrammingLanguages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Coders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
